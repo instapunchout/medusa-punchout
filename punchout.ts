@@ -28,7 +28,7 @@ export async function GET(
   }
 
   req.session.jwt_store = jwt.sign(
-    { customer_id: loggedCustomer.id },
+    { customer_id: loggedCustomer.id, punchout_id: loginData.punchout_id },
     projectConfig.jwt_secret!,
     { expiresIn: '30d' }
   )
